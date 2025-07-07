@@ -1,0 +1,315 @@
+**********************************************************************************************************************************
+
+/home/user1
+
+   Capestone_Prj	        
+	Project_Doc
+			
+		doc
+				projinfo.txt/unix_os.txt 
+				prjtechinfo.txt/linux_distro.txt
+				shell_type.csv
+				winfile.csv					
+			
+		manual
+				ebook1.txt
+				ebook2.txt
+				ebook3.txt
+				vim_doc.csv		
+		
+		Module1
+		 
+			frontend
+				 code1.txt    
+				 code2.txt
+				 code3.txt
+				 code4.sh
+				 code5.sh
+				 code6.sh
+				 code10.sh
+				 code11.sh
+				 code12.sh
+				 code100.cpp
+				 code101.cpp
+				 script1.txt
+				 script2.txt
+				 script3.txt
+		
+			backend
+				 dbms 
+					sqlscript		
+						  dbcode.txt
+		Module2
+			frontend
+				 code1.txt
+				 code2.txt
+				 code3.txt
+				 code100.cpp
+				 code101.cpp
+				 script1.txt
+				 script2.txt
+				 script3.txt
+			backend
+				 dbms 
+					sqlscript		
+						  dbcode.txt
+
+			
+		Module3
+			frontend
+				 
+				 code4.sh
+				 code5.sh
+				 code6.sh
+				 code10.sh
+				 code11.sh
+				 code12.sh
+				 code100.cpp
+				 code101.cpp				 
+	
+			backend
+				 dbms 
+					sqlscript		
+						  dbcode.txt
+	
+		Testing 
+			excel
+				test1.txt
+				test2.txt
+				test3.txt
+  	Project_Share
+			cpp
+				codev1.txt
+				codev2.txt
+				codev3.txt
+				codev4.txt
+				codev5.txt
+
+ 	 Backup_project
+
+
+
+
+**********************************************************************************************************************************
+
+
+1) Create the directory Capestone_Prj in home locations  and Use a single shell command to create three directories named  Project_Doc, 
+ 	Project_Share, and Backup_project in Project home directory.
+
+		mkdir capstone ; cd capstone; mkdir -p project_doc  project_share backup_project;
+
+2) Use a single shell command to create three directories named  "~/Capestone_Prj/Project_Doc/Module1", "Capestone_Prj/Project_Doc/Module2", 	"Capestone_Prj/Project_Doc/Module3"   in your home directory.
+	
+	 cd project_doc; mkdir -p Module1 Module2 Module3;
+
+3) Go to the /home/user1/Capestone_Prj/Project_Doc/Module1 and create the hierarchy directory structure "forntend", "backend/dbms/sqlscript",     	"~/Capestone_Prj/Module2/Frontend", "~/Capestone_Prj/Project_Doc/Module2/backend/dbms/sqlscript" using single shell command.
+
+	cd project_doc; mkdir Module1/frontend ; mkdir Module1/backend;mkdir Module1/backend/dbms ;	mkdir Module1/backend/dbms/sqlscript ; 
+			    mkdir Module2/frontend ; mkdir Module2/backend;mkdir Module2/backend/dbms ;	mkdir Module2/backend/dbms/sqlscript ;
+ 			
+
+4) Go to the /home/user1/Capestone_Prj/Project_Doc/Module3 and create the directory the  "frontend" and "backend"  using single shell command.
+
+	cd Module3;mkdir -p frontend backend
+		
+
+5) Go to the home directory, using the single sequence of shell commands to create directory Project_Doc/Testing/excel  and create empty file test1.txt, text2.txt  and text3.txt
+
+	cd ~;mkdir Project_Doc/Testing Project_Doc/Testing/excel; cd Project_Doc/Testing/excel ; touch text{1,2,3}.txt;
+
+6)  Navigate to the /home/user1/Capestone_Prj and create the hierarchy directory structure "Project_Share/cpp" and create file multiple file inside directory "Project_Share/cpp" as codev1.txt,codev2.txt,codev3.txt,codev4.txt,codev5.txt using the single sequence of shell commands
+ 	
+	mkdir Project_share/cpp ; touch Project_share/cpp/codev{1,2,3,4,5}.txt
+
+7) Go to the  /home/user1/Capestone_Prj/Project_Doc create the directory "doc" and "manual" and 
+create file "doc/projinfo.txt" with helps of  echo and i/o directional with  following content 
+   "Unix Based Operating Systems
+	1) Oracle Solaris
+	2) IBM AIX
+	3) HP-UX
+	4) FreeBSD
+	5) macOS"
+
+	cd project_doc ; mkdir -p doc manual ; touch doc/projinfo.txt; echo "Unix Based Operating Systems
+	1) Oracle Solaris
+	2) IBM AIX
+	3) HP-UX
+	4) FreeBSD
+	5) macOS"
+	> projinfo.txt
+
+
+8) Go to the  /home/user1/Capestone_Prj/Project_Doc  create file "doc/projtechinfo.txt" with helps of  cat and i/o directional with following content 
+	" Linux Distro Family
+		1) Debain
+		2) Fedora
+		3) SUSE "
+
+	cd doc ; touch projtechinfo.txt ; echo "Linux Distro Family
+		1) Debain
+		2) Fedora
+		3) SUSE" > projtechinfo.txt 
+
+		
+9) Go to the  /home/user1/Capestone_Prj/Project_Doc  create file "manual/ebook1.txt" with helps of  cat and i/o directional with following content 
+	"Linux Popular Distro used in Data Center Server
+		1) Red Hat Enterprise Linux (RHEL)
+		2) Ubuntu Server
+		3) Debian, 
+		4) CentOS, 
+		5) OpenSUSE, 
+		6) Fedora Server "
+
+		cd Project_Doc/manual and touch ebook1.txt and echo "Linux Popular Distro used in Data Center Server
+		1) Red Hat Enterprise Linux (RHEL)
+		2) Ubuntu Server
+		3) Debian, 
+		4) CentOS, 
+		5) OpenSUSE,  
+		6) Fedora Server " >  ebook1.txt ;
+
+
+10) Go to the  /home/user1/Capestone_Prj/Project_Doc  create file "manual/ebook2.txt" with helps of  cat and i/o directional with following content 
+    " File System support by Unix/Linux
+	1) ext 
+	2) ext2 
+	3) ext3 
+	4) ext4 
+	5) XFS 
+	6) Btrfs 
+	7) ZFS
+	8) F2FS "
+
+	cd Project_Doc/manual and touch ebook2.txt and echo "File System support by Unix/Linux
+	1) ext 
+	2) ext2 
+	3) ext3 
+	4) ext4 
+	5) XFS 
+	6) Btrfs 
+	7) ZFS
+	8) F2FS" >  ebook2.txt ;
+	
+
+11) Go to the Capestone_Prj/Project_Doc/doc directory location  and change the name of the projinfo.txt file to unix_os.txt.
+
+	cd Capestone_Prj/Project_Doc/doc and mv projinfo.txt file unix_os.txt.
+
+12) Navigate to the Capestone_Prj/Project_Doc/doc location and change the name of the projtechinfo.txt file into linux_distro.txt file 
+
+	cd Capestone_Prj/Project_Doc/doc and mv projtechinfo.txt linux_distro.txt 
+
+13) Navigate to the Capestone_Prj/Project_Doc/manual location and perform the following task
+		i) copy the ebook1.txt and paste into the codev1.txt  
+		ii) copy the ebook2.txt and paste into the codev2.txt 
+
+	cd Capestone_Prj/Project_Doc/manual and cp  ebook1.txt Capestone_Prj/Project_Share/cpp/Codev1.txt and  cp  ebook2.txt Capestone_Prj/Project_Share/cpp/Codev2.txt
+
+14) Go to the home location and preform the taskcreate copy of the unix_os.txt file from the capestone_Prj/Project_Doc/doc location  into backup_project
+
+		ln   Capestone_Prj/Project_Doc/doc/unix_os.txt  Capestone_Prj/backup_project/copy_unix.txt
+		
+15) Go to the ~/Capestone_Prj/backup_project and preform the task of  copy of the linux_distro.txt file from the capestone_Prj/Project_Doc/doc location  into current location
+	
+		
+
+16) Navigate to the Capestone_Prj/Project_Doc/manual,  Create the ebook3.txt file using ViM editor with the following content
+	"Vim, short for Vi IMproved, is a highly configurable and powerful text editor designed to enable efficient text editing. Vim is widely used by programmers, system administrators, and anyone who spends a significant amount of time working in the terminal"
+	Use the Vim to Yank and Paste the paragraph for 3 time.	
+
+	cd Capestone_Prj/Project_Doc/manual and vim ebook3.txt 
+	
+		press i 
+		write 
+			Vim, short for Vi IMproved, is a highly configurable and powerful text editor designed to enable efficient text editing. Vim is widely used by programmers, system administrators, and anyone who spends a significant amount of time working in the terminal"
+			Use the Vim to Yank and Paste the paragraph for 3 time.
+
+		press Esc
+		press v
+		goto line 1
+		type yy 4
+		-p
+		press Esc
+		press shif + :
+		press :wq
+		
+
+17) Navigate to the ~/Capestone_Prj/Project_Doc/doc, Copy the specify the source file ebook3.txt and the destination to current locations with vim_doc.csv
+
+		cd Capestone_Prj/Project_Doc/doc and 	cp ebook3.txt  vim_doc.csv
+
+18) Navigate to the ~/Capestone_Prj/backup_project, Copy the specify the source file ~/Capestone_Prj/Project_Doc/manual/ebook1.txt and vim_doc.csv to  destination of current locations
+
+			cd Capestone_Prj/backup_project and cp ebook1.txt vim_doc.csv /backup_project 
+
+19) Navigate to the Capestone_Prj/Project_Doc/doc, Create the shell_type.txt file using ViM editor with the following content
+	" Most popular Linux/Unix shell interpreters
+		1) sh (Bourne Shell)
+		2) Bash (Bourne Again Shell)
+		3) Zsh (Z Shell)
+		4) ksh (Korn Shell)
+		5) csh (C Shell)
+		6) tcsh (TENEX C Shell)"
+
+		cd Capestone_Prj/Project_Doc/doc and vim shell_type.txt 
+		
+		press i 
+		write 
+		Most popular Linux/Unix shell interpreters
+		1) sh (Bourne Shell)
+		2) Bash (Bourne Again Shell)
+		3) Zsh (Z Shell)
+		4) ksh (Korn Shell)
+		5) csh (C Shell)
+		6) tcsh (TENEX C Shell)
+
+		press Esc
+		press shif + :
+		press :wq
+		
+
+20) Navigate to the Capestone_Prj/Project_Doc/doc, Create the winfile.txt file using ViM editor with the following content
+" File system support by Windows OS 
+	1) NTFS
+	2) FAT32 "
+
+		cd Capestone_Prj/Project_Doc/doc and vim winfile.txt 
+		
+		press i 
+		write 
+		File system support by Windows OS 
+		1) NTFS
+		2) FAT32
+
+		press Esc
+		press shif + :
+		press :wq
+	
+
+
+
+21) Go to the  ~/Capestone_Prj/backup_prj location and preform the task by single sequence of commands as
+			create directory back_doc_txt , change directory into back_doc_txt , perform of copy all .txt file to current destination  
+
+
+		 cd Capestone_Prj/backup_prj and mkdir back_doc_txt  and cp -r *.txt  back_doc_txt 
+
+22) Go to the  ~/Capestone_Prj/Project_Doc/doc and preform the task by single sequence of commands as
+			create directory ~/Capestone_Prj/Backup_project/back_doc_csv, perform of copy all .csv file from  current location to destination  ~/Capestone_Prj/Backup_project/back_doc_csv
+
+		cd Capestone_Prj/Project_Doc/doc and mkdir ../../Backup_project/back_doc_csv and cp -r *.csv Capestone_Prj/Backup_project/back_doc_csv
+
+23) Go to the  ~/Capestone_Prj and preform the task of copy the Project_Doc directory include all its files and subdirectory to destination  	~/Capestone_Prj/Backup_project/
+
+		cd Capestone_Prj/project_doc/ and cp -r Capestone_Prj/Backup_project
+
+24) Navigate to the Capestone_Prj/Project_Doc perform the task of copy all the files from subdirectory to destination  ~/Capestone_Prj/Backup_project/
+
+		cd Capestone_Prj/project_doc/ and cp -r Capestone_Prj/Backup_projec
+
+25) Navigate to the Capestone_Prj/Project_Doc  perform the task of compress the manual directory to destination  ~/Capestone_Prj/Backup_project/
+
+			
+	tar -czvf manual.tar.gz manual
+	mv manual.tar.gz ../Backup_project/
+		

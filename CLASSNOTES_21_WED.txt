@@ -1,0 +1,23 @@
+Instead of doing 1000+ commmands for the daily tasks 
+
+we use shell scripting ---- programming stmt + shell command
+
+windows - api ----> linux - system call
+
+shell scripting ---- we write a set of commands in a shell 
+
+shell scripting -- programming language for OS of UNIX/LINUX
+
+all shell programs need to end with .sh   ---> file_name.sh
+
+we will write the shell programs un vim editor
+
+open vim editor 
+	vi pro1.sh
+
+#!/bin/bash
+	shebang -- Tell for what type the interpreter shell scripting is written
+	it is an optional text
+
+to execute this shell file_name.sh -- sh file_name.sh
+

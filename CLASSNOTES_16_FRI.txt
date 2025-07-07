@@ -1,0 +1,140 @@
+windows - single user OS
+unix ,linux - multi user OS
+
+linux - copy of unix
+
+servers - provide services for clients
+
+linus trysse - linux founder
+		sold to GNU
+
+debian 	federo 	suse
+ubuntu			suseOS
+
+unix - oracle solaris,freebsd,ibm aix,HP ux
+
+Desktop Linus -- requires more RAM
+
+shell - protectuve layer of kirshan.
+
+
+windows have 3 methods to interact they are 
+
+GUI
+CMD
+POWER SHELL
+
+Types of Shells
+
+	1.Bourne shell 		sh   (defualt shell for UNIX)
+	2.Bash Shell 			bash (default shell for LINUX)
+	3.Korn Shell			kSh	
+	4.Z shell			Tsh
+	5.C shell			csh
+
+
+BASH - Bourne Against Shell
+
+
+File System 
+	OS prepare the storage to store the data 
+	OS USE  INDEXING PRGRM FOR THE STORAGE
+
+FORMATTING - preparing the disk for indexing program to index the program access
+NTFS - windows file system 
+
+FIles --  Executable files/Binary files - .exe,.java,.cpp etc..
+	  Data Files	
+
+**********every OS has different File Systems.
+
+****File System used by LINUX - ext3,ext4,xfs,nfs
+****FIle system used by Windows - FAT32,NTFS
+
+FAT32 - allows onyl 2gb file size
+
+
+
+LINUX FILE SYSTEM STRUCTURE :->
+
+	one hierarchical folder called - ROOT in linux
+
+		*******Root******* folder - all hard disk are under this -- grouping all secondary storage devices
+
+*********windows - folder === linux - directory
+
+To organise files we need -- logical containers.
+
+
+/bin -- shell commands 
+/boot - boot files
+/dev - device files
+/home - users home locations
+/etc - configuration files
+
+
+shell commands to type in shell prompt
+	
+1.uname 
+	-- type of system
+	----username@networkname home_location$ : 
+	----$ - ordinary user
+	----# - power user -- has administrative powers
+
+2.uname -a 
+	---- full system information
+
+3.whoami 
+	---- shows username
+
+4.echo "HELLO WORLD"
+	--- echoed back into the commnad shell
+
+5.cho $SHELL
+	---- shows bash shell
+
+6.hostname
+	-- shows hostname
+
+7.echo $HOSTNAME
+	-- shows hostname
+
+8.pwd
+	-- shows current location
+
+9.clear 
+	-- clear the screen
+
+10.ls 
+	-- shows all directroies in our location
+
+11.cd dir_name
+	-- change the directory
+
+12.clear;cd etc; pwd
+	-- multiple commands in a single line sepearted by semi colon ;
+
+13. cd ~
+	-- moves to our home directory
+
+14.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

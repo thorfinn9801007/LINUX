@@ -1,0 +1,161 @@
+**********************************************************************************************************************************
+
+/home/user1
+
+   Capestone_Prj	        
+	Project_Doc
+			
+		doc
+				projinfo.txt/unix_os.txt 
+				prjtechinfo.txt/linux_distro.txt
+				shell_type.csv
+				winfile.csv					
+			
+		manual
+				ebook1.txt
+				ebook2.txt
+				ebook3.txt
+				vim_doc.csv		
+		
+		Module1
+		 
+			frontend
+				 code1.txt    
+				 code2.txt
+				 code3.txt
+				 code4.sh
+				 code5.sh
+				 code6.sh
+				 code10.sh
+				 code11.sh
+				 code12.sh
+				 code100.cpp
+				 code101.cpp
+				 script1.txt
+				 script2.txt
+				 script3.txt
+		
+			backend
+				 dbms 
+					sqlscript		
+						  dbcode.txt
+		Module2
+			frontend
+				 code1.txt
+				 code2.txt
+				 code3.txt
+				 code100.cpp
+				 code101.cpp
+				 script1.txt
+				 script2.txt
+				 script3.txt
+			backend
+				 dbms 
+					sqlscript		
+						  dbcode.txt
+
+			
+		Module3
+			frontend
+				 
+				 code4.sh
+				 code5.sh
+				 code6.sh
+				 code10.sh
+				 code11.sh
+				 code12.sh
+				 code100.cpp
+				 code101.cpp				 
+	
+			backend
+				 dbms 
+					sqlscript		
+						  dbcode.txt
+	
+		Testing 
+			excel
+				test1.txt
+				test2.txt
+				test3.txt
+  	Project_Share
+			cpp
+				codev1.txt
+				codev2.txt
+				codev3.txt
+				codev4.txt
+				codev5.txt
+
+ 	 Backup_project
+
+
+
+
+**********************************************************************************************************************************
+26 ) Create the alias for the file navigation to the location of  ~/Capestone_Prj/Backup_project as "bkp"; ~/Capestone_Prj/Project_Doc/Module1/frontend/	 as "mod1fd" ; ~/capestone_Prj/Project_Doc/doc as "doc"
+
+	==>   alias bkp='cd capstone/backup_project'
+		alias mod1fd='cd capstone/project_doc/Module1/frontend' 
+		alias doc='cd capstone/project_doc/doc' 
+	
+
+27) Navigate to the ~/Capestone_Prj/Backup_project perform the task of list archive content manual.tar directory into the file arch_content.txt
+
+	==>   tar -cvf manual.tar backup_project  
+		tar -tvf manual.tar
+		touch archive_files/arch_content.txt                               
+		tar -tvf manual.tar > archive_files/arch_content.txt   
+ 
+
+28) Navigate to the ~/Capestone_Prj/Backup_project perform the task of extract a manual.tar directory from an archive in the current location 
+	
+	==> mkdir archive_content 
+	==> tar -xvf ../manual.tar
+
+29) Go to the  ~/Capestone_Prj/Project_Doc/module1/frontend/ create the files with help of the single touch with multiple source and wild card
+    with following file names  
+   code1.txt,code2.txt,code3.txt, code4.sh,code5.sh,code6.sh,code10.sh,code11.sh,code12.sh, code100.cpp,code101.cpp, script1.txt,script2.txt,script3.txt
+
+	==> touch code{1,2,3}.txt code{4,5,6,10,11,12}.sh code{100,101}.cpp script{1,2,3}.txt
+		
+
+30) Go to the  ~/capestone_Prj/Project_Doc/doc  Read the all the .txt files from doc location and write the content into  
+	~/Capestone_Prj/Project_Doc/Module3/frontend/code1.txt using the i/o redirection
+
+	==> ls ../../doc/*.txt   > code1.txt
+		
+31) Navigate to the ~/Capestone_Prj/Project_Doc/Module1/frontend/ and perform the reading of all the .csv files from location ~/capestone_Prj/Project_Doc/doc and write the content into code4.sh  using the i/o redirection	
+
+		
+	==> ls *.csv  > ../../doc/code14.sh
+
+32) Navigate to the ~/Capestone_Prj/Project_Doc/Module1/frontend/ and 
+copy the multiple file code1.txt,code1.txt,code3.txt,code100.cpp,code101.cpp, script1.txt, script2.txt,script3.txt ,
+help of create pattern with wild card to destination ~/Capestone_Prj/Project_Doc/Module2/frontend/
+
+	
+	==> cp ls *.{txt,cpp} ../../Module2/frontend  
+	
+
+33) Navigate to the ~/Capestone_Prj/Project_Doc/Module3/frontend/ and 
+copy the multiple file with help of create pattern with wild card for this files code4.sh,code5.sh,code6.sh,code10.sh,code11.sh,code12.sh,code100.cpp,code101.cpp 
+from location ~/Capestone_Prj/Project_Doc/Module1/frontend/ to current destination 
+
+	==> cp *.{sh,cpp} ../../Module3/frontend  
+
+
+34) Give the file permission to all the files with .cpp and .sh extension using octal representation of Permissions of owner  with  read, write and execute,  group with only read& 
+execute and other with read for this location ~/capestone_Prj/Project_Doc/module1/frontend
+
+	==> chmod 754 *.{cpp,sh}  
+
+35) Give the file permission to all the files and subdirectory using octal representation of Permissions of owner with  read, write and execute, group with only read& 
+execute and other with no permission to this location ~/capestone_Prj/Project_Doc/module1/backend
+
+	 ==> chmod -R 755 dbms 
+	
+
+36) Give the file permission by appending the write permission to GROUP users and revoke the read permission from OTHER user to this location 	
+~/Capestone_Prj/Project_Share/cpp files from codev1 to codev4 file 
+
+
+	==> chmod g+w,o-r cpp/codev{1,2,3,4}.txt  

@@ -1,0 +1,160 @@
+bash - bourne against the shell ---- for linux
+
+
+Data centers --> servers --> OS --> multi user / networking os
+ 
+why we use shell commands ?
+	it is not a GUI it is a shell -- not user friendly
+
+who - adminidtrative privelage command
+
+shell  commands has 2 parameters -- 
+		input and parameter
+
+cal 2025 -- give 2025 calendar
+cal -3     -- give prior month,present month,next mnth
+
+man - manual 
+
+man cal -- gives all manual commands for cal
+cal cmd id appear in 
+
+ cal --help
+
+[[[[]]]] -- indicates optional parameters in Computer science.
+
+man -h -- gives information about command we used 
+--help
+
+grep -h ---- WRONG
+grep --help --- RIGHT
+
+directory -- logical container contains files
+
+ls -F 	--	list all files and directories
+
+ls -d  */ --	lists only directories
+
+ls -l  -- 	detailed manner of files and directories
+		'-' - files
+		'd' -  directory
+		'l'  -  link file
+
+ls /home/dirname -- show all files present in that location
+
+* what is the first letter denotes in permission file?
+	Denotes files types like:
+		'-' - files
+		'd' -  directory
+		'l'  -  link file
+
+~ -- home locations
+cd ..  -- prior directory
+
+ls -l directory_path -- lists all files present in that without navigating to that directory
+
+echo -- print the statements
+
+echo 'content' > filename.txt  -- put the content into filename.txt
+
+cat filename.txt  -- gives the content of filename.txt
+
+can be overide the file content using "echo 'content' > filename.txt" 
+
+echo 'content' >> filename.txt -- used to append the content 
+
+cat filename1.txt filename2.txt  --  cat can read the multiple files 
+
+we can create directories in previus directs using ==>  mkdir ../samdir2
+
+mkdir prj{1,2,3,4,5}  -- creates prj1,prj2,prj3,prj4,prj5 directories in the current directory
+
+-R -- recursive --> shown all the files in a directory along with path
+
+touch .hiddenfile --> create a file that is hidden
+
+ls -lt ==> files in order of created time
+
+ls -a ==> shows hidden files also
+
+ls -lh ==> shows all the files in human readable format --> KB,MB,GB data sizes
+
+wild card operators are ::==>
+	{}
+	[]
+	-
+	*
+	?
+
+ls -l *.txt --> all text files shown
+
+ls -l a*.txt --> all text files starting with a in thier filename
+
+ls -l a*.* --> all files start with a in their file name
+
+ls -d p*/ --> all directory name start with p as directriy name
+
+ls -d prj[1-5] --> shows prj1 prj2 prj3 prj4 prj5
+
+ls -d prj{3,5} --> shows prj3 prj5
+
+ls -d prj?/ --> after prj single character is allowed
+
+> -- io redirectional operator
+
+less filename.txt --> interactive command,page by page moment just like paging in js
+
+more  filename.txt --> interactive command , line by line moment
+
+head -n filename.txt --> give n number lines from the top of the filename.txt
+
+cp src_filename  prj1/  --> cp -copies file content
+
+to copy from the current loc to diff loc
+
+to copy from the current drectory to different file we use --> cs ~/adm3/lx.txt;
+
+mv src destination -- instead of copy it moves from src to destination
+
+mv old_file_name new_file_name  --> used to change the file name 
+
+cp *.* dir_name -- copies all current directory files into dir_name
+
+cp -r * ~/dir_name -- copies all file into dir_name
+
+cd ~/allfiles -- root directiry duplicate
+
+rmdir dir_name -- removes the directory(removes the empty directory only))
+
+**when directory contains dub dirs we cannot remove this dorectory 
+
+rm file_name -- file removing
+
+rm * -- all files removes in the current dirs except dirs
+
+rm -r * -- all files include the sub directories will be removed
+
+rm -ri dir_name -- asks for confirmation for the removal of dir
+
+ln - symbolic link 
+link file doesn't have original file - sofr link
+link file have original file but the deleltion of original file  doesn't effect on hard link file - hard file
+
+ln file_name hard_link_name -- creates a hard link
+
+ln -s file_name hard_link_name -- creates a soft  link
+
+ps -- show all commands whihc is running in our session
+
+top -- shows all the processes running (previuos user also) and cpu,memory,system statistical information  - CONTINUOSLY RUNNING COMMAND
+
+storage commands -
+du - disk usage 
+df - disk file system
+df -Th -- gives total disk files system 
+
+
+
+
+
+

@@ -1,0 +1,169 @@
+ext4:
+The dominant file system in Linux, offering a balance of features, performance, and reliability. 
+
+XFS:
+Designed for high-performance storage, particularly in large environments, and supports journaling. 
+
+Btrfs:
+A copy-on-write file system that is designed for large data centers and offers advanced features like snapshots and RAID
+
+printenv - alternative of env
+
+wc file_name  --> word count
+
+wc -l filename --> give lines count
+
+wc -w filename --> words count
+
+sort file_name --> sort the file content based on alphabetical order
+
+cut -c n file_name  --> 
+	c-character 
+	n number of c characters
+
+cut -d ' ' -f n file_name  -- cut the n number field content of the file
+
+
+cut -d ',' -f 2 sam3.csv 
+
+where sam3.csv is   10,jane,32323
+			12,arm,2323
+
+
+In root directory
+		-- we cannot create files
+		-- we cannot update its files
+		-- we can read the files
+
+
+1 2 3 4  	5 6 7  		8 9 10
+_ _ _ _    	_ _ _    	_ _ _
+owner	   	group 		others
+
+
+x- execute   
+w-write	==>	for files only
+r - read
+a - alluser
+
+u = owner
+g = group 
+o = others
+
+for directories 
+	
+	if the user gave permission to the dir , we can create,delete the files in that dir
+
+******chmod methods 
+	relative method 
+			chmod u=r sam.txt -- only read perimsiison for user
+			chmod u=w sam.txt -- only write permission overrides the read and set to write
+			chmod u+r sam.txt  -- add another permission now read+write for sam.txt
+			chmod u=rw sam.txt -- read and write permissons
+			chmod u=rwx g=r o=rwx sam.txt 
+			chmod a+x -- all user have excute permission
+			chmod u=x,go=-rwx xyz.txt -- all permissions are removed for xyz.txt except x for user
+
+	absolute method
+
+			1 - execute
+			2 - write
+			4 -  read
+			3 - 1+2 ==> execute + write
+			5 - 1+4 ==> execute + read
+			6 - 2+4 ==> write + read
+			7 - 1+2+4 ==> execute+read+write
+			0 - No permission
+
+
+
+
+	chmod 	ugo		sam.txt
+			700
+			user has all permissions
+			group 	has no permissins
+			other has no permissions
+			
+	chown - change the owner ship of the files or directory
+	chgrp - change the group permission
+	adduser - 
+
+	groupadd 
+	usermod -a -G group1,group2 username
+
+
+
+	grep 	-	used to search content in the files from the bunch of directories
+			
+		-		grep "BSD" ux.txt  --> check whether the BSD is present int ux or not
+
+				grep "BSD" *         --> start searching all directories and files and give the result
+ 
+				grep -i "word" file_name --> search by ignoring case
+				
+				grep -iw "ix" * --> looks for a exact word 'ix' in the dirs
+
+				grep -iwn "unix" *.* --> shows us line number where unix exists in the dirs
+
+				grep -iwnr "unix" *.* --> opens all files and directories and shows us line number where unix exists in the dirs
+
+				
+IPC 
+	inter process communication
+
+	Pipes (I/O redirection)
+	> 	-- io redirection
+	>>  	-- append
+	| 	-- pipe    ---> helps us to create sequential command   cmd1|cmd2|cmd3|cmd4 
+	2>	-- error message  ----> ls *.html 2> errfile
+
+
+******	grep -iwr "bsd" * | cut -d ":" -f 1 > bsd.txt  
+			
+			--- grep -iwr "bsd" * gives output as paths
+
+			---- cut -d ":" -f 1 > bsd.txt   -- takes the above output as input and cut the path send it to the bsd,txt
+
+****** cat file.txt | head -10 | tail -3  > file1.txt
+
+
+
+SED --- stream editor ----- insertion,deletion,search, replace
+
+find - search the file location 
+grep - search the content in the files
+
+
+rectify the mistake of pipes --
+
+find /run/screen -name ux.txt 2> usernameerr.txt
+cat usernameerr.txt | cut -d "." -f 2 | cut -d "/" -f 4 | cut -c 3- > username.txt
+
+
+************************ls -l [s,x]*.txt 
+
+
+vim editor
+
+			vi filename.txt
+			has 3 modes
+				insert mode (nav mode press i)
+				nav mode
+				app/command mode
+				
+	command mode -- shift+:
+		:w -- save mode	
+		i key - insert mode
+		:q -- quit the vim editor
+		:wq -- save and quit
+	yank === copy
+	be in a current line press YY
+	
+
+
+
+
+
+
+
+	

@@ -1,0 +1,36 @@
+IPC technique - SHARED MEMORY
+
+Memory mapping in Linux is a powerful technique that allows a program to treat a file on disk as if it were a region of its own virtual memory. This is primarily achieved using the `mmap` system call. The speaker explains this concept by drawing an analogy to inserting a pen drive into a laptop, which effectively extends the laptop's secondary storage.
+
+Here's a breakdown of the key concepts and steps involved in memory mapping, as explained by the speaker:
+
+**1. The `mmap` System Call:**
+* `mmap` is the core system call in Linux for memory mapping.
+* It allows a secondary storage file (like a text file) to be "imported" as virtual memory into a process's virtual address space.
+
+**2. Analogy to a Pen Drive:**
+* Just as a pen drive adds to your laptop's storage, `mmap` adds a file's content to a process's accessible memory space.
+* The data in the mapped region behaves like regular memory, meaning it can be read from and written to.
+
+**3. How `mmap` Works Internally:**
+* **Virtual Memory Page Creation:** When `mmap` is called, the operating system creates new, consecutive virtual memory pages within the process's virtual address space. The size of these pages is typically 4096 bytes (4KB). For an 8192-byte file, two such pages would be created.
+* **Page Table Updates:** The process's page table is updated to map these newly created virtual pages to corresponding physical pages in RAM.
+* **Physical Page Allocation:** New physical pages are allocated in RAM to hold the data from the mapped file. (Note: The speaker clarifies that pages are typically loaded into RAM on demand, but the physical pages are conceptually assigned.)
+
+**4. `mmap` vs. `malloc`/`calloc`:**
+* The virtual memory pages created by `mmap` (referred to as "green colored" pages by the speaker) are conceptually similar to those created by `malloc` or `calloc` (referred to as "yellow colored" pages).
+* From the process's perspective, there's no distinction in operations; memory manipulation functions like `memcpy`, `memset`, etc., work identically on both.
+
+**5. Data Persistence and `munmap`:**
+* The key difference is that the "green colored" pages are backed by a file on disk.
+* **`munmap` System Call:** The `munmap` system call is used to "unmap" a previously mapped memory region.
+* When `munmap` is called, any changes made by the process to the mapped virtual pages (and thus to the corresponding physical pages in RAM) are written back to the original file on disk. This ensures data persistence.
+
+**6. Benefits of Memory Mapping:**
+* **File I/O Optimization:** Instead of traditional `read()` and `write()` system calls, which involve copying data between kernel buffers and user-space buffers, `mmap` directly maps the file into the process's address space. This can be more efficient for large files, especially for random access.
+* **Treating Files as Arrays:** A mapped file can be treated as an array of bytes, making it easy to access specific offsets within the file.
+* **Persisting Data Structures:** A significant advantage highlighted by the speaker is the ability to persist complex data structures (like linked lists, trees, stacks, queues) directly into a file.
+    * Traditionally, saving a linked list to a file would involve serializing its contents.
+    * With `mmap`, you can create the linked list directly within the mapped memory region. When `munmap` is called, the entire data structure's state, including its linked relationships, is written back to the file. This is possible because the "flat" file memory becomes byte-addressable and can store pointers (offsets within the mapped region) that maintain the data structure's integrity.
+
+**In essence, memory mapping provides a seamless way to integrate file-based data directly into a program's memory model, enabling efficient data access and persistence of complex in-memory structures.**

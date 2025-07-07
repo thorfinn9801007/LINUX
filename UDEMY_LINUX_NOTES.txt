@@ -1,0 +1,91 @@
+***************************************************************************5/18/2025*********************************************************************************************
+
+date - 
+	gives date and timestamp
+
+cal  -
+	gives calender
+cal -y 
+	gives year calendar
+
+cal -3 
+	gives 3 months of the year
+
+
+linux file system 
+	tree like structu
+	aka directroy tree
+
+directory tree- 
+	same like fmaily tree
+	has one parent tree -- /
+	bin -- binary
+	opt - optional
+	home - user direct
+	temp-temporary
+	var - varibale data
+
+absloute path
+	/home/john/music
+relative path 
+	./music
+
+NAVIGATING FILE SYSTEMS
+
+
+pwd - -present/print working directory
+ls     - list a directory
+cd    - change directory
+cd ~ - takes to home directory
+cd ..  - parent directory
+cd -  - previous directory
+
+linux links
+
+inode - database / file		
+	doesn't contain important things
+	just about links,texts
+
+every file in the system has an inode 
+contain all file inofrmation except the file contents and name
+just like personal id or password
+they contain 
+	inode number,
+	file size
+	owner information 
+	permissions
+	file type
+	number of links
+	etc
+
+2 types of links
+	soft links - symbolic links,smaller in soze,pointer to original file
+	hard links - different name of same file ,same file size
+
+to see inode number of direcotrie s
+
+go to directory in terminal 
+type the command  == ls -i
+		                ls -i /
+
+ln original hardlink2 - toi create a link for the file
+
+
+hard links contains the exact information of original file
+
+hard links are not effected even if we delete the original file
+
+ls -l 	==> shows all links of the file
+S
+ls -t 	==> shows the directories based on the modifcation date
+
+ls -r 	==>	sh0ows the dorectories in reverse order
+
+ls -R directory_name 	==> list all the files present in that dorectory also the sub directory contents
+
+
+
+***************************************************************************5/19/2025*****************************************************************************************************
+
+
+

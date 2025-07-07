@@ -1,0 +1,115 @@
+tee
+	uitlity , single stream of data comes in split into 2 or more directions
+	split a data stream to a disk
+	allows us to read input and send the out put to screen and to the file
+	
+		echo "Hi this is the tee command" | tee -a file.txt   --> to append an exisitng file
+	
+	to send output to multiple files
+		cat file.txt | tee script.txt script1.txt -- display the contents of file.txt on to the screen
+
+	used to capture thr output from an interactive session
+
+
+tar
+	
+	Tape Archive
+	used utitlity for bundling multiple files and directories into archive files.
+	tar - an archiver
+	
+	-c -> create a new archive
+	-x -> Extract files from an archive
+	-t -> list the contents of an archive 
+	-r -> append the files to an exisitng archive
+	-u -> add files to an archive
+	--delete -> delete files from an archive
+	-f -> name of the archive file
+	-v -> display the list of files being processed
+	-z -> compresses the archive using ghzip or decompresses ---- archives created with extension .tar.gz / .tgz extensions
+	-k -> comrpesses the archive using bzip2 
+	
+	tar [options] archive_name dir_name
+	
+
+cronjob 
+	
+	a scheduled command / script that runs automatically at dfixed times,dates or intervals
+	
+	cron -- runs in background -- executes the schediuled tasks  -- this tasks are stored in configuration file called a crontab(cron table).
+	
+	user crontabs --- each user on the system have thier own crontab file -- runs with user premissions
+	
+	system crontabs -- locaed in /etc/crontab -- managed by system administrator
+	
+	
+	┌───────────── minute (0 - 59)
+	│ ┌───────────── hour (0 - 23)
+	│ │ ┌───────────── day of month (1 - 31)
+	│ │ │ ┌───────────── month (1 - 12 or Jan-Dec)
+	│ │ │ │ ┌───────────── day of week (0 - 6 or Sun-Sat; 0 or 7 is Sunday)
+	│ │ │ │ │
+	* * * * * /path/to/command_or_script
+
+	crontab -e  --> edits the current user's crontab file
+	crontab -l   --> lists the current users crontab entries
+	conrtab -r  --> removes the current users crontab file
+
+sed
+		
+	Stream Editor
+	used for text transformation and manipulation
+	performs deletion,insertion or prointing on each line and then writes the result to standard output.
+	
+	sed [options] 'SCRIPT' input_file
+	
+	SCRIPT -- core of sed -- set of commands
+	
+	** sed reads one line at a time into an buffer -- pattern space
+	** sed has secondary buffer -- hold space
+
+	-i --> edit the file wihout printing
+	-n --> sippress automativ pronting of lines
+	-e --> allows multiple commands to be executed
+	-f --> reads sed commands from a file 
+	-r --> enables extended regular expressions
+
+
+grep 
+		
+	Global Regular Expression Print -- helps in searching text or pattern within files and command output using regular expressions
+	
+
+	grep [options] pattern file
+	
+	options are 
+			error 
+			-i
+			-n
+			-w
+			-r
+			-v
+			-c
+			--color -- 
+			^pattern -- match start of the line
+			pattern$ -- match end of the line
+			char.char -- match any single character
+			[...]  --- match any of a set
+			-E   --> match multiple patterns
+			-B  --> shows n lines before match
+			-A  --> shows n lines after match
+			-C  --> shows n lines before and after match	
+			-e  --> search for multiple words
+			
+
+ 		.	Any character.
+		?	Optional and can only occur once.
+		*	Optional and can occur more than once.
+		+	Required and can occur more than once.
+
+
+
+
+
+
+
+			

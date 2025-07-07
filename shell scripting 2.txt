@@ -1,0 +1,892 @@
+/1/variables:
+
+#! /bin/bash
+NAME="Nayomi"
+echo $NAME
+
+     [user1@localhost ~]$ ./var.sh
+Nayomi
+
+#! /bin/bash
+NAME="Nayomi"
+readonly NAME
+echo $NAME
+NAME="kalpana"
+       [user1@localhost ~]$ ./var.sh
+Nayomi
+./var.sh: line 5: NAME: readonly variable
+---------------------------------------------------------------------------------------
+/2/special variable:
+
+#! /bin/bash
+echo "current file name: $0"
+echo "first value :"$1
+echo "second value : $2"
+echo "third value : $3"
+echo "fourth value : $4"
+echo "quoted values: $*"
+echo "qouted values in different lines: $@"
+echo "no of arguments given: $#"
+echo "process ID current shell: $$"
+echo "process number of last background process: $!"
+echo "exit status of last command: $?"
+/ans/
+[user1@localhost ~]$ ./test.sh nayomi kalpana anuhya priya
+current file name: ./test.sh
+first value :nayomi
+second value : kalpana
+third value : anuhya
+fourth value : priya
+quoted values: nayomi kalpana anuhya priya
+qouted values in different lines: nayomi kalpana anuhya priya
+no of arguments given: 4
+process ID current shell: 15115
+process number of last background process: 
+exit status of last command:0
+-------------------------------------------------------------------------------------------
+/3/array +loop
+#! /bin/bash
+std_names=("Nayomi" "Kalpana" "Rakshitha" "Sai")
+for element in "${std_names[@]}"
+do
+ echo "$element"
+done
+echo
+echo "No of elements: ${#std_names[@]}"
+echo
+echo "${std_names[@]}"
+/ans/
+[user1@localhost ~]$ ./array.sh
+Nayomi
+Kalpana
+Rakshitha
+Sai
+
+No of elements: 4
+
+Nayomi Kalpana Rakshitha Sai
+--------------------------------------------------------------------------------------------
+
+#!/bin/sh
+
+NAME[0]="ABC"
+NAME[1]="DEF"
+NAME[2]="GHI"
+NAME[3]="JKL"
+NAME[4]="MNO"
+echo "First Index: ${NAME[0]}"
+echo "Second Index: ${NAME[1]}"
+The above example will generate the following result -
+
+$./test.sh
+First Index: ABC
+Second Index: DEF
+............................................................................................
+${array_name[*]}
+${array_name[@]}
+Here array_name is the name of the array you are interested in. Following example will help you understand the concept -
+
+ 
+#!/bin/sh
+
+NAME[0]="prema"
+NAME[1]="mahi"
+NAME[2]="Mouni"
+NAME[3]="radhi"
+NAME[4]="nive"
+echo "First Method: ${NAME[*]}"
+echo "Second Method: ${NAME[@]}"
+...........................................................................................
+										decison making
+
+#!/bin/bash
+file=/home/user1/file.txt
+if [ -s $file ]
+then
+cat $file
+else
+rm $file
+fi
+
+--
+
+
+------------------------------------------------------------------------------------------------
+4/operators:arithmetic+relational/
+#!/bin/bash
+
+a=100
+b=1000
+echo "sum: `expr $a + $b`"
+echo "sub: `expr $a - $b`"
+echo "mul: `expr $a \* $b`"
+echo "div: `expr $a / $b`"
+echo "modulo: `expr $a % $b`"
+echo "assign c=$a"
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+fi
+
+if [ $a != $b ]
+then
+   echo "a is not equal to b"
+fi
+/ans/ 
+[user1@localhost ~]$ ./opera.sh
+sum: 1100
+sub: -900
+mul: 100000
+div: 0
+modulo: 100
+assign c=100
+a is not equal to b
+____________________________________________________________                                                                                                                                                                     __________________
+5/addition through command line/
+#!/bin/bash
+echo -n "enter the first number : "
+read num1
+echo -n "enter the second number :"
+read num2
+sum=`expr $num1 + $num2`
+echo "sum of two value is $sum"
+/ans/
+[user1@localhost ~]$ ./opera.sh
+enter the first number : 55
+enter the second number :111111111
+sum of two value is 111111166
+------------------------------------------------------
+6/file operator+if/
+
+#! /bin/bash
+file=/home/user1/test.txt
+echo "to check file is there or not is it is there then return the size"
+if [ -e $file ]
+  then
+echo -n "size:"
+     du -h test.txt
+else
+    echo "file not exits"
+fi
+
+/ans/
+[user1@localhost ~]$./fileop.sh
+to check file is there or not is it is there then return the size
+size:8.0K       test.txt
+
+
+-------------------------------------------------------------------------------------
+/7/
+#! /bin/bash
+for file in /home/user1/*.txt
+do
+echo -n "size:"
+     du -h $file
+done
+/ans/
+[user1@localhost ~]$ ./fileop.sh
+size:8.0K       /home/user1/myhandson.txt
+size:8.0K       /home/user1/test.txt
+____________________________________________________
+/8/
+#! /bin/bash
+for i in $(ls);do
+echo item:$i
+done
+/ans/
+[user1@localhost ~]$./for.sh
+item:array.sh
+item:Desktop
+item:dir1
+item:fileop.sh
+item:for.sh
+item:movies
+item:myhandson.txt
+item:opera.sh
+item:songs
+item:test.sh
+item:test.txt
+item:var.sh
+----------------------------------------------------------
+/9/#!/bin/bash                                                                                                                                                                    #!/bin/bash
+counter=20
+until [ $counter -lt 10 ]
+do
+echo "counter $counter"
+counter=`expr $counter - 1`
+done
+/ans/
+[user1@localhost ~]$ ./until.sh
+counter 20
+counter 19
+counter 18
+counter 17
+counter 16
+counter 15
+counter 14
+counter 13
+counter 12
+counter 11
+counter 10
+------------------------------------------------
+/10/
+#!/bin/bash
+counter=20
+while [ $counter -lt 30 ]
+do
+echo "counter $counter"
+counter=`expr $counter + 1`
+done
+/ans/
+[user1@localhost ~]$ ./while.sh
+counter 20
+counter 21
+counter 22
+counter 23
+counter 24
+counter 25
+counter 26
+counter 27
+counter 28
+counter 29
+------------------------------------------------------------------
+/11/#!/bin/bash
+
+for var1 in 1 2 3
+do
+   for var2 in 0 5
+   do
+      if [ $var1 -eq 2 -a $var2 -eq 0 ]
+      then
+         break 2
+      else
+         echo "$var1 $var2"
+      fi
+   done
+done
+/ans/
+[user1@localhost ~]$ ./break.sh
+1 0
+1 5
+
+----------------------------------------------
+/12/#!/bin/bash
+
+NUMS="1 2 3 4 5 6 7"
+
+for NUM in $NUMS
+do
+   Q=`expr $NUM % 2`
+   if [ $Q -eq 0 ]
+   then
+      echo "Number is an even number!!"
+      continue
+   fi
+   echo "Found odd number"
+done
+/ans/
+[user1@localhost ~]$./con.sh
+Found odd number
+Number is an even number!!
+Found odd number
+Number is an even number!!
+Found odd number
+Number is an even number!!
+Found odd number
+------------------------------------------------
+/13/
+#!/bin/bash
+select file in text bash none
+     do
+   case  $file in
+        text)
+           echo "move to documents"
+            ;;
+         bash)
+           echo "move to bash folder"
+             ;;
+            none)
+              break
+             ;;
+          *) echo "mv to other folder"
+             ;;
+
+      esac
+done
+/ans/
+[user1@localhost ~]$ bash ./select.sh
+1) text
+2) bash
+3) none
+#? 1
+move to documents
+#? 2
+move to bash folder
+#? 5
+mv to other folder
+#? 3
+[user1@localhost ~]$ 
+
+-------------------------------------------------------
+/14/#!/bin/bash
+
+select DRINK in tea cofee water juice appe all none
+do
+   case $DRINK in
+      tea|cofee|water|all)
+         echo "Go to canteen"
+         ;;
+      juice|appe)
+         echo "Available at home"
+      ;;
+      none)
+         break
+      ;;
+      *) echo "ERROR: Invalid selection"
+      ;;
+   esac
+done
+/ans/
+[user1@localhost ~]$ bash ./select1.sh
+1) tea
+2) cofee
+3) water
+4) juice
+5) appe
+6) all
+7) none
+#? 1
+Go to canteen
+#? 5
+Available at home
+#? 7
+-------------------------------------------------------------
+/15/#!/bin/sh
+
+a="abc"
+b="efg"
+
+if [ $a = $b ]
+then
+   echo "$a = $b : a is equal to b"
+else
+   echo "$a = $b: a is not equal to b"
+fi
+
+if [ $a != $b ]
+then
+   echo "$a != $b : a is not equal to b"
+else
+   echo "$a != $b: a is equal to b"
+fi
+
+if [ -z $a ]
+then
+   echo "-z $a : string length is zero"
+else
+   echo "-z $a : string length is not zero"
+fi
+
+if [ -n $a ]
+then
+   echo "-n $a : string length is not zero"
+else
+   echo "-n $a : string length is zero"
+fi
+
+if [ $a ]
+then
+   echo "$a : string is not empty"
+else
+   echo "$a : string is empty"
+fi
+/ans/
+[user1@localhost ~]$ bash ./str.sh
+abc = efg: a is not equal to b
+abc != efg : a is not equal to b
+-z abc : string length is not zero
+-n abc : string length is not zero
+abc : string is not empty
+---------------------------------------------------------------------
+/16/
+#!/bin/bash
+for file in /home/user1/Desktop/*.txt
+do
+if [ ! -x $file ]
+then
+  chmod 755 $file
+  echo "execute permission is set"
+fi
+done
+---------------------------------------------------------------------------
+/17/
+#!/bin/bash
+for file in /home/user1/Desktop/*.txt
+do
+if [ ! -s $file ]
+then
+   rm $file
+else
+  chmod a-wx  $file
+  echo "permissions are removed for $file"
+fi
+done
+/ans/
+[user1@localhost Desktop]$ bash ./file.sh
+rm: remove write-protected regular empty file `/home/user1/Desktop/file1.txt'? y
+rm: remove write-protected regular empty file `/home/user1/Desktop/file2.txt'? y
+-------------------------------------------------------------------------------------------
+/18/
+#!/bin/bash
+
+NAME[0]="Zara"
+NAME[1]="Qadir"
+NAME[2]="Mahnaz"
+NAME[3]="Ayan"
+NAME[4]="Daisy"
+echo "First Index: ${NAME[0]}"
+echo "Second Index: ${NAME[1]}"
+
+#!/bin/bash
+
+NAME[0]="Zara"
+NAME[1]="Qadir"
+NAME[2]="Mahnaz"
+NAME[3]="Ayan"
+NAME[4]="Daisy"
+echo "First Method: ${NAME[*]}"
+echo "Second Method: ${NAME[@]}"
+-----------------------------------------------------------------------------
+/19/
+#! /bin/bash
+for file in /dev/*
+do
+if [ -b $file ]
+then
+  echo "binary file $file"
+  fi
+done
+--------------------------------------------------
+/20/
+/file test operators/
+#! /bin/bash
+c=0
+b=0
+d=0
+for file in /dev/*
+do
+if [ -b $file ]
+then
+  b=`expr $b + 1`
+elif [ -c $file ]
+then
+  c=`expr $c + 1`
+elif [ -d $file ]
+then
+   d=`expr $d + 1`
+fi
+done
+echo "no of binary files: $b"
+echo "no of character files: $c"
+echo "no of directories: $d"
+~                         
+/ans/
+[user1@localhost ~]$ ./block.sh
+no of binary files: 52
+no of character files: 135
+no of directories: 10
+---------------------------------------------------
+/21/
+#! /bin/bash
+NUMS="1 2 3 4 5 6 7"
+
+for NUM in $NUMS
+do
+   Q=`expr $NUM % 2`
+   if [ $Q -eq 0 ]
+   then
+      echo "Number is an even number!!"
+      continue
+   fi
+   echo "Found odd number"
+done
+~      
+---------------------------------------------------------
+
+•	if...else statement
+SYNTAX:
+if [ expression ] 
+then 
+Statement(s) to be executed if expression is true 
+fi
+----------------------------
+ if...else...fi :
+Syntax
+if [ expression ]
+then
+   Statement(s) to be executed if expression is true
+Else
+   Statement(s) to be executed if expression is not true
+fi
+-------------------------------
+if elis fi:
+if [ expression 1 ]
+then
+   Statement(s) to be executed if expression 1 is true
+elif [ expression 2 ]
+then
+   Statement(s) to be executed if expression 2 is true
+elif [ expression 3 ]
+then
+   Statement(s) to be executed if expression 3 is true
+else
+   Statement(s) to be executed if no expression is true
+fi
+---------------------------------------------------
+ case...esac statement
+syntax:
+case word in
+   pattern1)
+      Statement(s) to be executed if pattern1 matches
+      ;;
+   pattern2)
+      Statement(s) to be executed if pattern2 matches
+      ;;
+   pattern3)
+      Statement(s) to be executed if pattern3 matches
+      ;;
+   *)
+     Default condition to be executed
+     ;;
+esac
+----------------------------------------------------------
+ 		
+while loop: 
+Syntax:
+
+while command
+do
+   Statement(s) to be executed if command is true
+done
+------------------------------------------
+for loop:
+Syntax
+
+for var in word1 word2 ... wordn
+do
+Statement(s) to be executed for every word.
+done
+--------------------------------------------
+UNTIL COMMAND:
+Syntax
+until command
+do
+   Statement(s) to be executed until command is true
+done
+---------------------------------------------
+SELECT:
+Syntax:
+
+select var in word1 word2 ... wordN
+do
+   Statement(s) to be executed for every word.
+done
+-----------------------------------------------------
+Shell Loop Control
+BREAK:
+Syntax
+break
+(or)
+break n
+Here n specifies the nth enclosing loop to the exit from.
+-------------------------------------------------------------------
+CONTINUE:
+Syntax
+Continue
+(Or)
+continue n
+Here n specifies the nth enclosing loop to continue from.
+-------------------------------------
+
+
+
+
+      calcu.sh
+#!/bin/bash
+
+echo CALCULATOR
+ch=1
+while [ $ch -ne 0 ]
+do
+	echo 1. Addition
+	echo 2. Subtraction
+	echo 3. Multiplication
+	echo 4. Division
+	echo 0. Exit
+	echo -n Enter your choice: 
+    read ch
+	case "$ch" in
+	1) echo -n Enter two numbers: 
+   		read a b
+   		sum=`expr $a + $b`
+   		echo Sum = $sum;;
+
+	2) echo -n Enter two numbers: 
+   		read a b
+   		difference=`expr $a - $b`
+   		echo Difference = $difference;;
+
+	3) echo -n Enter two numbers: 
+   		read a b
+   		product=`expr $a \* $b`
+   		echo Product = $product;;
+
+	4) echo -n Enter two numbers: 
+   		read a b
+   		quotient=`expr $a / $b`
+   		remainder=`expr $a % $b`
+   		echo Quotient = $quotient
+   		echo Remainder = $remainder;;
+	0) echo Bye!!!;;
+	*) echo Invalid Choice
+	esac
+done
+
+================================================
+
+comparison.sh
+#!/bin/bash
+
+echo enter any 3 numbers 
+read a 
+read b 
+read c 
+	if [ $a -gt $b -a $a -gt $b ] 
+		then echo the greatest no. is :$a 
+	elif [ $b -gt $a -a $b -gt $c ] 
+		then echo the greatest no. is : $b 
+	else 
+		echo the greatest no is : $c 
+	fi
+
+====================================================
+
+fibonacci.sh
+echo how many numbers
+read num
+
+num1=0
+num2=1
+
+echo fibonacci series
+echo $num1
+echo $num2
+
+count=3
+
+while [ $count -le $num ]
+
+do
+num3=`expr $num1 + $num2`
+echo $num3
+num1=$num2
+num2=$num3
+count=`expr $count + 1`
+done
+====================================================
+
+                            
+
+1)
+
+#! /bin/bash
+echo "what is my name?$1"
+echo "my qualification is:$2"
+echo "my designation:$3"
+echo "filename: $0"
+echo "my proile: $*"
+echo "total no of args:$#"
+echo "my process id: $$"
+echo "my status: $?"
+
+
+1 a)[linux@localhost ~]$ ./splvar.sh baby bsc_cs linuxer
+what is my name?baby
+my qualification is:bsc_cscx
+my designation:linuxer
+filename: ./splvar.sh
+my proile: baby bsc_cs linuxer
+total no of args:3
+my process id: 32297
+my status: 0
+
+2)  #! /bin/bash
+arr=(baby affu barbie mickey dora jerry bujji)
+echo ${arr[*]}
+echo ${arr[@]:0}
+echo ${arr[@]:2}
+echo ${arr[@]:5}
+echo ${arr[2]}
+echo ${arr[@]:2:5}
+echo ${#arr[3]}
+echo ${#arr[@]}
+echo ${arr[@]//e/E}
+
+2 ans)
+[linux@localhost ~]$ ./arrvar.sh
+baby affu barbie mickey dora jerry bujji
+baby affu barbie mickey dora jerry bujji
+barbie mickey dora jerry bujji
+jerry bujji
+barbie
+barbie mickey dora jerry bujji
+6
+7
+baby affu barbiE mickEy dora jErry bujji
+
+
+3)     #!/bin/bash
+
+FILE="opt1"
+
+if [ -w $FILE ]
+then
+  echo "$file is true"
+else
+  echo "Either $file exist or is not a writable file"
+fi
+
+
+
+3)ans   [linux@localhost ~]$ ./opt1.sh
+Either opt1 exist or is not a writable file
+
+
+
+
+4)   # !/bin/bash  
+arr=(1 2 3 4 5)
+i=0
+echo while loop numbers
+while [ $i -lt ${#arr[@]} ]
+do
+     echo ${arr[$i]}
+i=`expr $i + 1`
+done
+echo for loop numbers
+for i in "${arr[@]}"
+do
+  echo $i
+done
+4 ans)   [linux@localhost ~]$ ./loop.sh
+while loop numbers
+1
+2
+3
+4
+5
+for loop numbers
+1
+2
+3
+4
+5
+
+
+
+5)#!/bin/bash
+count=99
+if [ $count -eq 100 ]
+then
+  echo "Count is 100"
+
+ else
+if [ $count -gt 100 ]
+  then
+    echo "Count is greater than 100"
+  else
+  echo "Count is less than 100"
+  fi
+fi
+
+5) ans  [linux@localhost ~]$ ./loop1.sh
+Count is less than 100
+
+6
+
+6)#!/bin/sh
+os="unix"
+case "$os" in
+   "unix") 
+              echo "unix is a command line interpreter."
+   ;;
+   "linux")  
+                     echo "linux is derived from unix."
+   ;;
+   "windows") 
+                     echo "windows 10 in flexible."
+   ;;
+esac
+
+
+
+
+
+
+
+
+
+6) ans   [linux@localhost ~]$ ./case.sh
+unix is a command line interpreter.
+
+
+7)#!/bin/bash
+arr=(baby affu mickey dora jerry bujji)
+select element in ${arr[@]}
+do
+case $element in
+  baby|affu)  
+                     echo "barbie mickey dora jerry bujji"
+                    break
+   ;;
+   esac
+done
+
+
+
+8)#!/bin/bash
+
+str1=""
+str2="poonam"
+
+if [ -z  "$str2" ]; then
+    echo "true"
+else
+   echo "false"
+fi
+
+
+
+
+9)#!/bin/bash
+file=file.sh
+actualsize=$(du -k "$file")
+if [ $actualsize -ge 90 ]; then
+echo size is over $actualsize
+else
+echo size is under $actualsize
+fi
+
+-------------------------------------------------------                                                                                                                         
+          
+
+                                        
+                                                                                                                                                                             
+
+                                                                                                                              
+                                                                                                                                                                                      
+
+
+
+
+   

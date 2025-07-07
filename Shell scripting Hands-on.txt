@@ -1,0 +1,415 @@
+1) Write the shell scripting to get interactive input from num1 and num2 and add the two number
+
+#!/bin/bash
+read -p "Enter the number a :" a
+read -p "Enter the number b :" b
+add=`expr $a + $b`
+echo "Result is :$add"
+
+
+2) Write the shell scripting program to get command line input of two number and multiply number and display the result as output
+
+#!/bin/bash
+read -p "Enter the number a :" a
+read -p "Enter the number b :" b
+mul=`expr $a \* $b`
+echo "Result is :$mul"
+
+3) Write the shell program  to display the current system date and time using the date command. Display the "Current Date is " and Current Time is "
+Output :- 
+	Current Date is: 04-03-25
+	Current Time is: 08:35:55
+
+#!/bin/bash
+currdate=`date "+%d-%m-%y"`
+currtime=`date "+%H:%M:%S"`
+echo "Current Date is:  $currdate"
+echo "Current Time is:  $currtime"
+
+
+4) Write the shell sripting to get the user name and password. If input for user name is "admin" and password is "pass123" ,then allow display valid user, if not matched  then "invalid user"
+
+#!/bin/bash
+read -p "Enter the user name :" name
+read -p "Enter the password :" pass
+if [ $name == "admin" -a $pass == "pass123" ]
+then
+        echo "Valid User "
+else
+        echo "Invalid User"
+fi
+echo "Completed"
+
+5) Write the shell scripting program to display the name of shell program, process ID , number of argument received by program, all the argument input  and last execution status of shell command
+
+#!/bin/bash
+echo "Program name : $0"
+echo "Process ID : $$"
+echo "Number of Arguments : $#"
+echo "All Arguments : $*"
+echo "Last Execution status :$?"
+
+6) write the shell program to get input and display the given number is positve/negative or zero number, If not number then display not number
+	
+#!/bin/bash 
+read -p "Enter the number :" num
+if [ "$num" -gt 0 ]
+then
+        echo "Postive Number " 
+elif [ "$num" -lt 0 ]
+then
+        echo "Negative Number"
+else
+        echo "Zero Number" 
+fi
+echo "Completed"
+
+7) Write the shell prorgam to check the existence of the file in loctaion "/home/user1/testfile.txt". Display the "File Exists" and if not then "File does not exist"
+
+#!/bin/bash
+read -p "Enter the file name: " file
+
+if [ -e $file ]                                                             
+then                                                                
+        clear                                               
+        echo "FIle Exists: "                              
+        cat $file                                                                
+else                                                                        
+        echo "File doesn't Exists"                                
+fi 
+
+8) Write the shell program to get three number as input and find the greatest of three number
+
+#!/bin/bash 
+read -p "Enter the number :" num1
+read -p "Enter the number :" num2
+read -p "Enter the number :" num3
+
+if [ "$num1" -gt "$num2" -a "$num1" -gt "$num3" ]
+then
+	echo "Max Number is  : $num1" 
+
+elif if [ "$num2" -gt "$num3" -a "$num2" -gt "$num1" ]
+then
+       echo "Max Number is  : $num2" 
+else
+        echo "Max Number is  : $num3" 
+fi
+echo "Completed"
+
+
+	
+9) Write the shell scripting to get the input of directory name and check the exists or not , if exist then display the  all files and child directories from it location  else create the new directory  
+
+#!/bin/bash
+read -p "Enter the directiory name: " file
+
+if [ -e $file ]                                                             
+then                                                                
+        clear                                               
+        echo "Directory Exists: "                              
+        ls -la $file                                                                
+else                                                                       
+	echo "new Directory is created"
+          mkdir $file                     
+fi 
+echo "Operation is completed"
+	
+10) Display the content of the file from location /home/user1/file.txt. If file is empty remove the file
+
+#!/bin/bash
+read -p "Enter the file name: " file
+
+if [ -e $file ]                                                             
+then  
+	if [ ! -s $file ]
+	then 
+		rm $file       
+	fi                                                                        
+fi 
+echo "Operation is completed"
+
+
+11) Write the shell program to  get file  name as argument input  and check existence of file, if file is there then display the "Size of file is " else  display the "File not exits"
+
+#!/bin/bash
+read -p "Enter the file name: " file
+
+if [ -e $file ]                                                             
+then  
+	filesize=`stat c%s "$file"`
+	echo "$filesize"
+else 
+	echo "File doesn't exist"                                                                    
+fi 
+echo "Operation is completed"
+	
+12) Write the shell program to retrive all the files with ls shell command and use the for loop statement to display the file 
+
+#!/bin/bash
+for i in $(ls)
+do
+        echo "File : $i"
+done
+
+13) Write the shell scripting to get input as number and find the number of digit enter
+
+#!/bin/bash
+read -p "Enter your number " n
+count=0
+temp=$n
+while [ "$temp" -ne 0 ]
+do
+        temp=`expr $temp / 10`
+        count=`expr $count + 1`
+done
+                                                                            
+echo "number od digits is : $count"
+
+14) Write the shell scripting to find the how many odd number and even number for this given number 10,23,15,50,55,100, 5
+	Variable is assign as NUMS="10 23 15 50 55 100 5"
+
+#!/bin/bash  
+NUMS="10 23 15 50 55 100 5"
+even=0
+odd=0
+for NUM in $NUMS
+do
+        Q=`expr $NUM % 2`
+        if [ $Q -eq 0 ]
+         then
+                even=`expr $even + 1`
+        else
+                odd=`expr $odd + 1`
+        fi
+done
+echo "Even Numbers are : $even"
+echo "Odd Numbers are : $odd"
+echo "Completed.." 
+	
+
+15) Write the shell script program to assign the value in array variable is AIX, BSD, SOLARIS,HP-UX and retrive from the array with help of for loop statement and display the elements and number of elements of array 
+
+	#!/bin/bash
+array=("AIX","BSD","SOLARIS","HP-UX")
+c=0
+for ele in "${array[@]}"
+do
+        echo "$ele"
+        c=`expr $c + 1`
+done
+echo "No of elements : $c"
+echo "Completed..."
+
+
+16) Write the shell scripting program to read all the text file  with extension .txt   from the location "/home/user1/prj/*.txt" and display it size of file of each
+
+
+#!/bin/bash
+read -p "Enter the directory name:" dir
+if [ -d "$dir" ]
+then
+        for i in `ls *.txt "$dir"`
+        do
+                if [ -f "$i" ]
+                then
+                        echo "$i"
+                fi
+        done
+fi
+	    
+
+17) Write the shell scripting program to read all the file  with extension .csv  from the location "/home/user1/prj/*.txt" and display total sum of the csv file from the prj directory
+
+                
+#!/bin/bash
+read -p "Enter the directory name:" dir
+c=0
+if [ -d "$dir" ]
+then
+        for i in `ls *.csv "$dir"`
+        do
+                if [ -f "$i" ]
+                then
+                        echo "$i"
+		    c=`expr $c + 1`
+                fi
+        done
+fi
+echo "Number of files present here are : $c"
+	
+
+18) Write the  shell program to change the file permission to all (user , group, other) only with read permission and remove the empty file  from the location /home/user1/prj
+
+#!/bin/bash                                                                                
+read -p "Enter your file name :" file                                                      
+if [ -e "$file" ]                                                                          
+then                                                                                       
+        chmod 444 $file                                                                    
+else                                                                                       
+        rm $file                                                                           
+fi                                                                                         
+echo "COmpleted"   
+
+19) Write the shell scripting to read all the text file from location "/home/user1/prj/*.txt" .Delete the empty file. 
+Read the all the content from file and append to one file single file
+
+
+#!/bin/bash                                                                                
+read -p "Enter your file name :" file  
+if [ -f "$file" ]
+then 
+	cat $i > single.txt
+else
+	rm $file
+fi
+echo "Completed..."
+
+
+20) Write the shell scripting to find factorial of number which get as the command line input. Use the While Loop statement
+
+#!/bin/bash                                                                                
+read -p "Enter you file name :" file                                                       
+if [ -f "$file" ]                                                                          
+then                                                                                       
+        cat "$file" >> single.txt                                                          
+else                                                                                       
+        rem "$file"                                                                        
+fi                                                                                         
+echo "COmpleted"  
+
+
+21) Write the shell scripting to find the sum of number, getting as interactive input in while statement and if input  -1 given then it should terminate the loop and display the total
+
+#!/bin/bash
+read -p "Enter the number you want to add its d
+igits" num
+sum=0
+while [ "$num" -ne 0 ]
+do
+        digit=`expr $num % 10`
+        sum=$((sum + digit))
+        num=`expr $num / 10`
+done
+                                               
+echo "The sum of digits $sum"
+echo "Completed"              
+
+22) Write the shell scripting to find the number of binary file, Character file and directories from location /dev/
+
+	#!/bin/bash
+read "Enter the directory name: " dir
+b=0
+c=0
+d=0
+for i in `ls $dir`
+do
+        if [ -b "$i" ]
+        then
+                b=`expr $b + 1`
+        elif [ -c "$i" ]
+        then
+                c=`expr $c + 1`
+        elif [ -d "$i" ]
+        then
+                d=`expr $d + 1`
+        fi
+done
+                                               
+echo "Binary FIles are : $b"
+echo "Character Files are : $c"
+echo "Directories are : $d"
+echo "Completed...."
+
+23) Write the shell scripting to read line by line from  file called "testfile.txt"    with help of while statment
+
+#!/bin/bash
+                                               
+read -p "Enter the file name : " file
+                                               
+IFS=$'\n'
+for l in $(cat "$file")
+do
+        echo "$l"
+done
+echo "Completed.."
+
+24) Write a shell script that includes the following functions:
+
+	add() Function: Takes two numbers as input.Returns the sum of the two numbers.
+	sub() Function: Takes two numbers as input. Returns the difference between the two numbers.
+	mul() Function: Takes two numbers as input. Returns the product of the two numbers.
+	div() Function: Takes two numbers as input. Returns the quotient of the two numbers.
+Use the select and case statements to display a menu and allow the user to select an option to perform the desired task.
+
+	
+	#!/bin/bash
+ 
+        add() {
+            result=$(echo "$1 + $2" | bc -l)
+            echo "Sum: $result"
+        }
+ 
+        sub() {
+            result=$(echo "$1 - $2" | bc -l)
+            echo "Difference: $result"
+        }
+ 
+        mul() {
+            result=$(echo "$1 * $2" | bc -l)
+            echo "Product: $result"
+        }
+ 
+        div() {
+            if (( $(echo "$2 == 0" | bc -l) )); then
+                echo "Error: Division by zero is not allowed."
+            else
+                result=$(echo "scale=2; $1 / $2" | bc -l)
+                echo "Quotient: $result"
+            fi
+        }
+ 
+        while true; do
+            echo ""
+            echo "Select an operation:"
+            select opt in "Add" "Subtract" "Multiply" "Divide" "Exit"; do
+                case $opt in
+                    "Add")
+                        read -p "Enter first number: " num1
+                        read -p "Enter second number: " num2
+                        add "$num1" "$num2"
+                        break
+                        ;;
+                    "Subtract")
+                        read -p "Enter first number: " num1
+                        read -p "Enter second number: " num2
+                        sub "$num1" "$num2"
+                        break
+                        ;;
+                    "Multiply")
+                        read -p "Enter first number: " num1
+                        read -p "Enter second number: " num2
+                        mul "$num1" "$num2"
+                        break
+                        ;;
+                    "Divide")
+                        read -p "Enter numerator: " num1
+                        read -p "Enter denominator: " num2
+                        div "$num1" "$num2"
+                        break
+                        ;;
+                    "Exit")
+                        echo "Exiting calculator."
+                        exit 0
+                        ;;
+                    *)
+                        echo "Invalid option. Please choose a number from 1 to 5."
+                        ;;
+                esac
+            done
+        done
+
+	
+
+
+
